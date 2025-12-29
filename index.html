@@ -10,14 +10,8 @@
         
         /* شريط الوقت والتاريخ */
         .date-container {
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            background: white; padding: 15px; border-radius: 15px; margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 5px;
         }
         .time-now { font-size: 1.8rem; font-weight: bold; color: var(--secondary); }
         .date-row { display: flex; justify-content: space-around; font-size: 0.9rem; color: #7f8c8d; border-top: 1px solid #eee; pt: 5px; }
@@ -25,23 +19,25 @@
 
         header { padding: 15px; background: white; border-radius: 15px; margin-bottom: 20px; }
         h1 { margin: 0; font-size: 1.4rem; color: var(--primary); }
-        .section-title { background: var(--primary); color: white; padding: 10px; border-radius: 8px; margin: 20px 0 10px; font-weight: bold; }
-        .card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); position: relative; }
+        .section-title { background: var(--primary); color: white; padding: 10px; border-radius: 8px; margin: 25px 0 10px; font-weight: bold; }
+        
+        .card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: 0.3s; }
         .card.done { background-color: #ecfdf5; opacity: 0.7; border: 1px solid var(--success); }
-        .text { font-size: 1.1rem; color: var(--primary); line-height: 1.8; margin-bottom: 15px; font-weight: bold; }
+        .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; margin-bottom: 15px; font-weight: bold; }
+        
         .footer-card { display: flex; justify-content: space-between; align-items: center; }
-        .count-badge { background: #eef2f7; padding: 8px 15px; border-radius: 10px; font-weight: bold; }
+        .count-badge { background: #eef2f7; padding: 8px 15px; border-radius: 10px; font-weight: bold; color: var(--primary); }
         
         .fingerprint-btn { 
             background: linear-gradient(145deg, #3498db, #2980b9);
             color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; cursor: pointer;
-            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
         }
         .fingerprint-btn:active { transform: scale(0.9); }
-        .card.done .fingerprint-btn { background: var(--success); }
+        .card.done .fingerprint-btn { background: var(--success); box-shadow: none; }
 
-        .sebha-section { background: #fff; padding: 20px; border-radius: 25px; border: 3px solid var(--secondary); margin-top: 20px; }
-        .sebha-count { font-size: 3.5rem; font-weight: bold; margin-bottom: 15px; }
+        .sebha-section { background: #fff; padding: 25px; border-radius: 25px; border: 3px solid var(--secondary); margin-top: 30px; }
+        .sebha-count { font-size: 3.5rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; }
         .rights { margin-top: 40px; padding: 20px; font-size: 0.8rem; color: #7f8c8d; border-top: 1px dotted #ccc; }
     </style>
 </head>
@@ -61,7 +57,7 @@
         <small style="color: var(--secondary);">إعداد: ماجد السناني</small>
     </header>
 
-    <div class="section-title">أذكار مختارة</div>
+    <div class="section-title">أذكار الصباح والمساء</div>
 
     <div class="card" id="c1">
         <p class="text">﴿اللّهُ لاَ إِلَـٰهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ﴾</p>
@@ -71,40 +67,83 @@
         </div>
     </div>
 
+    <div class="card" id="c2">
+        <p class="text">الإخلاص، الفلق، والناس (3 مرات)</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n2">3</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n2','c2')">👆</button>
+        </div>
+    </div>
+
+    <div class="card" id="c3">
+        <p class="text">أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له...</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n3">1</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n3','c3')">👆</button>
+        </div>
+    </div>
+
+    <div class="card" id="c4">
+        <p class="text">رضيت بالله ربًا، وبالإسلام دينًا، وبمحمد ﷺ نبيًا</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n4">3</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n4','c4')">👆</button>
+        </div>
+    </div>
+
+    <div class="card" id="c5">
+        <p class="text">اللهم عافني في بدني، اللهم عافني في سمعي، اللهم عافني في بصري</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n5">3</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n5','c5')">👆</button>
+        </div>
+    </div>
+
+    <div class="card" id="c6">
+        <p class="text">حسبي الله لا إله إلا هو، عليه توكلت وهو رب العرش العظيم</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n6">7</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n6','c6')">👆</button>
+        </div>
+    </div>
+
+    <div class="card" id="c7">
+        <p class="text">بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n7">3</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n7','c7')">👆</button>
+        </div>
+    </div>
+
+    <div class="card" id="c8">
+        <p class="text">سبحان الله وبحمده</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n8">100</span></span>
+            <button class="fingerprint-btn" onclick="reduce('n8','c8')">👆</button>
+        </div>
+    </div>
+
     <div class="section-title">السبحة الإلكترونية</div>
     <div class="sebha-section">
         <div class="sebha-count" id="sCount">0</div>
-        <button class="fingerprint-btn" style="width: 80px; height: 80px; margin: auto;" onclick="incrementSebha()">👆</button>
+        <button class="fingerprint-btn" style="width: 100px; height: 100px; margin: auto;" onclick="incrementSebha()">👆</button>
         <br><br>
-        <button onclick="resetSebha()" style="background:none; border:none; color:#95a5a6;">تصفير</button>
+        <button onclick="resetSebha()" style="background:none; border:none; color:#95a5a6; cursor:pointer;">تصفير العداد</button>
     </div>
 
     <div class="rights">جميع الحقوق محفوظة لصاحب العمل ماجد السناني &copy; 2025</div>
 
     <script>
-        // دالة الوقت والتاريخ
         function updateDateTime() {
             const now = new Date();
-            
-            // الوقت
             document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
-            
-            // اليوم
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             document.getElementById('dayName').innerText = days[now.getDay()];
-            
-            // التاريخ الميلادي
             document.getElementById('gregorianDate').innerText = now.toLocaleDateString('ar-EG');
-            
-            // التاريخ الهجري
-            document.getElementById('hijriDate').innerText = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', {
-                day: 'numeric', month: 'long', year: 'numeric'
-            });
+            document.getElementById('hijriDate').innerText = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', {day: 'numeric', month: 'long', year: 'numeric'});
         }
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
+        setInterval(updateDateTime, 1000); updateDateTime();
 
-        // دالة العدادات
         function reduce(id, cardId) {
             let el = document.getElementById(id);
             let val = parseInt(el.innerText);
@@ -123,7 +162,7 @@
         function incrementSebha() {
             sCounter++;
             document.getElementById('sCount').innerText = sCounter;
-            if (navigator.vibrate) navigator.vibrate(70);
+            if (navigator.vibrate) navigator.vibrate(80);
         }
         function resetSebha() {
             sCounter = 0;
