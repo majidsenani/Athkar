@@ -5,127 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أذكار الصباح والمساء - ماجد السناني</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --bg: #f8fafc; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --bg: #fdfdfd; }
         
         body { 
             font-family: 'Tahoma', sans-serif; 
             margin: 0; padding: 10px; text-align: center;
             background-color: var(--bg);
-            /* إضافة المخطوطات الإسلامية في الخلفية */
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
+            /* إضافة خلفية زخرفية إسلامية مدمجة */
+            background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%3C95a5a6' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 32c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm21-13c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-1 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm56 12c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-9-78c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-54 2c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 121c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'/%3E%3C/g%3E%3C/svg%3E");
             background-attachment: fixed;
         }
-        
+
         /* شريط الوقت والتاريخ */
         .date-container {
             background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(5px);
-            padding: 15px; border-radius: 15px; margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 5px;
-            border: 1px solid rgba(52, 152, 219, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px; border-radius: 20px; margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.18);
         }
-        .time-now { font-size: 1.8rem; font-weight: bold; color: var(--secondary); }
-        .date-row { display: flex; justify-content: space-around; font-size: 0.9rem; color: #7f8c8d; border-top: 1px solid #eee; padding-top: 5px; }
-        .day-name { font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+        .time-now { font-size: 2rem; font-weight: bold; color: var(--secondary); text-shadow: 1px 1px 2px rgba(0,0,0,0.05); }
+        .date-row { display: flex; justify-content: space-around; font-size: 0.95rem; color: #7f8c8d; border-top: 1px solid #eee; padding-top: 10px; margin-top: 5px; }
 
-        header { 
-            padding: 15px; background: rgba(255, 255, 255, 0.9); 
-            border-radius: 15px; margin-bottom: 20px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
-        h1 { margin: 0; font-size: 1.4rem; color: var(--primary); }
-        
-        .section-title { background: var(--primary); color: white; padding: 10px; border-radius: 8px; margin: 25px 0 10px; font-weight: bold; }
+        .section-title { background: var(--primary); color: white; padding: 12px; border-radius: 12px; margin: 30px 0 15px; font-weight: bold; font-size: 1.1rem; }
         
         .card { 
-            background: rgba(255, 255, 255, 0.95); 
-            border-radius: 20px; padding: 20px; margin-bottom: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s;
-            border: 1px solid #f0f0f0;
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(5px);
+            border-radius: 25px; padding: 25px; margin-bottom: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .card.done { background-color: rgba(232, 245, 233, 0.9); opacity: 0.8; border: 1px solid var(--success); }
-        .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; margin-bottom: 15px; font-weight: bold; }
-        
-        .footer-card { display: flex; justify-content: space-between; align-items: center; }
-        .count-badge { background: #f1f5f9; padding: 8px 15px; border-radius: 10px; font-weight: bold; color: var(--primary); }
+        .card.done { background-color: rgba(200, 230, 201, 0.8); border: 1px solid var(--success); }
+        .text { font-size: 1.2rem; color: var(--primary); line-height: 1.8; margin-bottom: 20px; font-weight: bold; }
         
         .fingerprint-btn { 
-            background: linear-gradient(145deg, #3498db, #2980b9);
-            color: white; border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 1.6rem; 
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white; border: none; border-radius: 50%; width: 70px; height: 70px; font-size: 1.8rem; 
             cursor: pointer; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.3);
         }
-        .fingerprint-btn:active { transform: scale(0.9); box-shadow: none; }
-        .card.done .fingerprint-btn { background: var(--success); box-shadow: none; }
-
-        .sebha-section { 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 25px; border-radius: 25px; border: 3px solid var(--secondary); margin-top: 30px; 
-        }
-        .sebha-count { font-size: 4rem; font-weight: bold; color: var(--primary); margin-bottom: 15px; }
-        
-        .rights { margin-top: 40px; padding: 20px; font-size: 0.8rem; color: #7f8c8d; border-top: 1px dotted #ccc; }
+        .fingerprint-btn:active { transform: scale(0.85); box-shadow: none; }
     </style>
 </head>
 <body>
 
     <div class="date-container">
-        <div class="day-name" id="dayName">اليوم</div>
+        <div id="dayName" style="font-weight: bold; color: var(--primary); font-size: 1.2rem;">--</div>
         <div class="time-now" id="clock">00:00:00</div>
         <div class="date-row">
-            <div id="hijriDate">-- / -- / ---- هـ</div>
-            <div id="gregorianDate">-- / -- / ---- م</div>
+            <div id="hijriDate">-- / -- / ----</div>
+            <div id="gregorianDate">-- / -- / ----</div>
         </div>
     </div>
 
-    <header>
-        <h1>أذكار الصباح والمساء</h1>
-        <small style="color: var(--secondary); font-weight: bold;">بإشراف: ماجد السناني</small>
-    </header>
-
-    <div class="section-title">الأذكار والتحصينات</div>
+    <div class="section-title">أذكار الصباح والمساء</div>
 
     <div class="card" id="c1">
         <p class="text">﴿اللّهُ لاَ إِلَـٰهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ﴾</p>
-        <div class="footer-card">
-            <span class="count-badge">المرات: <span id="n1">1</span></span>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="background: #eee; padding: 10px 20px; border-radius: 15px; font-weight: bold;">المرات: <span id="n1">1</span></span>
             <button class="fingerprint-btn" onclick="reduce('n1','c1')">👆</button>
         </div>
     </div>
 
     <div class="card" id="c2">
-        <p class="text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾ ، ﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ﴾ ، ﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ﴾</p>
-        <div class="footer-card">
-            <span class="count-badge">المرات: <span id="n2">3</span></span>
+        <p class="text">الإخلاص والفلق والناس (3 مرات)</p>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="background: #eee; padding: 10px 20px; border-radius: 15px; font-weight: bold;">المرات: <span id="n2">3</span></span>
             <button class="fingerprint-btn" onclick="reduce('n2','c2')">👆</button>
         </div>
     </div>
-
-    <div class="card" id="c4">
-        <p class="text">رضيت بالله ربًا، وبالإسلام دينًا، وبمحمد ﷺ نبيًا</p>
-        <div class="footer-card">
-            <span class="count-badge">المرات: <span id="n4">3</span></span>
-            <button class="fingerprint-btn" onclick="reduce('n4','c4')">👆</button>
-        </div>
-    </div>
-
-    <div class="card" id="c8">
-        <p class="text">سبحان الله وبحمده</p>
-        <div class="footer-card">
-            <span class="count-badge">المرات: <span id="n8">100</span></span>
-            <button class="fingerprint-btn" onclick="reduce('n8','c8')">👆</button>
-        </div>
-    </div>
-
-    <div class="section-title">السبحة الإلكترونية</div>
-    <div class="sebha-section">
-        <div class="sebha-count" id="sCount">0</div>
-        <button class="fingerprint-btn" style="width: 110px; height: 110px; margin: auto; font-size: 2rem;" onclick="incrementSebha()">👆</button>
-        <br><br>
-        <button onclick="resetSebha()" style="background:none; border:none; color:#95a5a6; cursor:pointer; font-weight: bold;">تصفير العداد</button>
-    </div>
-
-    <div class="rights">جميع الحقوق محفوظة لصاحب العمل ماجد السناني &copy; 2025</div>
 
     <script>
         function updateDateTime() {
@@ -134,7 +84,7 @@
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             document.getElementById('dayName').innerText = days[now.getDay()];
             document.getElementById('gregorianDate').innerText = now.toLocaleDateString('ar-EG');
-            document.getElementById('hijriDate').innerText = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', {day: 'numeric', month: 'long', year: 'numeric'});
+            document.getElementById('hijriDate').innerText = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', {day:'numeric', month:'long', year:'numeric'});
         }
         setInterval(updateDateTime, 1000); updateDateTime();
 
@@ -149,19 +99,6 @@
                 document.getElementById(cardId).classList.add('done');
                 el.innerText = "تم";
                 document.getElementById(cardId).querySelector('.fingerprint-btn').innerText = "✓";
-            }
-        }
-
-        let sCounter = 0;
-        function incrementSebha() {
-            sCounter++;
-            document.getElementById('sCount').innerText = sCounter;
-            if (navigator.vibrate) navigator.vibrate(80);
-        }
-        function resetSebha() {
-            if(confirm("هل تريد التصفير؟")) {
-                sCounter = 0;
-                document.getElementById('sCount').innerText = sCounter;
             }
         }
     </script>
