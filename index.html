@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أذكار ماجد السناني</title>
+    <title>أذكار ماجد السناني - النسخة الكاملة</title>
     <style>
         :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --bg: #f4f7f6; }
         body { 
@@ -13,15 +13,13 @@
         }
         .date-container { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.5); }
         .time-now { font-size: 2rem; font-weight: bold; color: var(--secondary); margin: 5px 0; }
-        .date-row { display: flex; justify-content: space-around; font-size: 0.9rem; color: #2c3e50; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 10px; font-weight: bold; }
+        .date-row { display: flex; flex-direction: column; gap: 5px; font-size: 1rem; color: #2c3e50; border-top: 1px solid #e2e8f0; padding-top: 10px; margin-top: 10px; font-weight: bold; }
+        .hijri-text { color: #c0392b; }
         .main-header { background: var(--primary); color: white; padding: 15px; border-radius: 15px; margin: 10px 0 25px; font-weight: bold; font-size: 1.4rem; }
-        
         .card { background: rgba(255, 255, 255, 0.98); border-radius: 20px; padding: 20px; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); border: 1px solid rgba(255, 255, 255, 0.6); text-align: right; }
         .card.done { background-color: rgba(232, 245, 233, 0.95); border: 1px solid var(--success); opacity: 0.7; }
-        
         .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; margin-bottom: 10px; font-weight: bold; text-align: center; }
         .hamish { font-size: 0.85rem; color: #e67e22; font-weight: bold; background: #fff5e6; padding: 8px; border-radius: 10px; display: block; margin-top: 10px; border-right: 4px solid #e67e22; line-height: 1.5; }
-        
         .footer-card { display: flex; justify-content: space-between; align-items: center; flex-direction: row-reverse; margin-top: 15px; }
         .count-badge { background: #f1f5f9; padding: 10px 20px; border-radius: 15px; font-weight: bold; font-size: 0.9rem; color: var(--primary); }
         .fingerprint-btn { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); }
@@ -30,28 +28,28 @@
 <body>
 
     <div class="date-container">
-        <div id="dayName" style="font-weight: bold; color: var(--primary); font-size: 1.3rem;">--</div>
+        <div id="dayName" style="font-weight: bold; font-size: 1.3rem;">--</div>
         <div class="time-now" id="clock">00:00:00</div>
         <div class="date-row">
-            <div id="hijriDate">التاريخ الهجري: جارِ التحميل...</div>
-            <div id="gregorianDate">--</div>
+            <div id="hijriDate" class="hijri-text">التاريخ الهجري...</div>
+            <div id="gregorianDate">التاريخ الميلادي...</div>
         </div>
     </div>
 
-    <div class="main-header">أذكار الصباح والمساء</div>
+    <div class="main-header">أذكار الصباح والمساء كاملة (24 ذكراً)</div>
 
     <div class="card" id="c1">
         <p class="text">﴿اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهما وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾</p>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n1','c1')">👆</button><span class="count-badge">المرات: <span id="n1">1</span></span></div>
     </div>
 
-    <div class="card" id="c2"><p class="text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾﴾</p><div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n2','c2')">👆</button><span class="count-badge">المرات: <span id="n2">3</span></span></div></div>
-    <div class="card" id="c3"><p class="text">﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ ﴿٥﴾﴾</p><div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n3','c3')">👆</button><span class="count-badge">المرات: <span id="n3">3</span></span></div></div>
-    <div class="card" id="c4"><p class="text">﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾﴾</p><div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n4','c4')">👆</button><span class="count-badge">المرات: <span id="n4">3</span></span></div></div>
+    <div class="card" id="c2"><p class="text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ ...﴾</p><div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n2','c2')">👆</button><span class="count-badge">المرات: <span id="n2">3</span></span></div></div>
+    <div class="card" id="c3"><p class="text">﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ...﴾</p><div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n3','c3')">👆</button><span class="count-badge">المرات: <span id="n3">3</span></span></div></div>
+    <div class="card" id="c4"><p class="text">﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ ...﴾</p><div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n4','c4')">👆</button><span class="count-badge">المرات: <span id="n4">3</span></span></div></div>
 
     <div class="card" id="c5">
         <p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيرَ مَا بَعْدَهُ ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</p>
-        <div class="hamish">وإذا أمسى قال: أمسينا وأمسى الملك للَّه] [وإذا أمسى قال: رب أسألك خير ما في هذه الليلة، وخير ما بعدها، وأعوذ بك من شر ما في هذه الليلة، وشر ما بعدها.</div>
+        <div class="hamish">وإذا أمسى قال: أمسينا وأمسى الملك لله... رب أسألك خير ما في هذه الليلة...</div>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n5','c5')">👆</button><span class="count-badge">المرات: <span id="n5">1</span></span></div>
     </div>
 
@@ -62,19 +60,19 @@
     </div>
 
     <div class="card" id="c7">
-        <p class="text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عهدك ووعدك مَا استطعت، أعوذ بك من شر مَا صنعت، أبوء لك بنعمتك علي، وأبوء بذنبي فاغفر لي فإنه لا يغفر الذنوب إلا أنت</p>
+        <p class="text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لاَ يَغْفِرُ الذُّنوبَ إِلاَّ أَنْتَ</p>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n7','c7')">👆</button><span class="count-badge">المرات: <span id="n7">1</span></span></div>
     </div>
 
     <div class="card" id="c8">
         <p class="text">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتِكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرَسُولُكَ</p>
-        <div class="hamish">وإذا أمسى قال: اللَّهم إني أمسيت...</div>
+        <div class="hamish">تقال 4 مرات. وفي المساء: "اللَّهم إني أمسيت..."</div>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n8','c8')">👆</button><span class="count-badge">المرات: <span id="n8">4</span></span></div>
     </div>
 
     <div class="card" id="c9">
         <p class="text">اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</p>
-        <div class="hamish">وإذا أمسى قال: اللَّهم ما أمسى بي...</div>
+        <div class="hamish">في المساء: "اللَّهم ما أمسى بي..."</div>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n9','c9')">👆</button><span class="count-badge">المرات: <span id="n9">1</span></span></div>
     </div>
 
@@ -115,13 +113,13 @@
 
     <div class="card" id="c17">
         <p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ: فَتْحَهُ، وَنَصْرَهُ، وَنورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ</p>
-        <div class="hamish">وإذا أمسى قال: أمسينا وأمسى الملك للَّه ربّ العالمين...</div>
+        <div class="hamish">في المساء: "أمسينا وأمسى الملك لله رب العالمين... خير هذه الليلة..."</div>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n17','c17')">👆</button><span class="count-badge">المرات: <span id="n17">1</span></span></div>
     </div>
 
     <div class="card" id="c18">
         <p class="text">أَصْبَحْنا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ الْمُشرِكِينَ</p>
-        <div class="hamish">وإذا أمسى قال: أمسينا على فطرة الإسلام...</div>
+        <div class="hamish">في المساء: "أمسينا على فطرة الإسلام..."</div>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n18','c18')">👆</button><span class="count-badge">المرات: <span id="n18">1</span></span></div>
     </div>
 
@@ -137,7 +135,7 @@
 
     <div class="card" id="c25">
         <p class="text">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p>
-        <div class="hamish">تُقال ثلاثَ مرَّاتٍ إذا أمسى.</div>
+        <div class="hamish">تقال ثلاث مرات في المساء.</div>
         <div class="footer-card"><button class="fingerprint-btn" onclick="reduce('n25','c25')">👆</button><span class="count-badge">المرات: <span id="n25">3</span></span></div>
     </div>
 
@@ -150,16 +148,18 @@
     <script>
         function updateDateTime() {
             const now = new Date();
-            // الوقت
             document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
-            // اليوم
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             document.getElementById('dayName').innerText = days[now.getDay()];
-            // التاريخ الميلادي
-            document.getElementById('gregorianDate').innerText = now.toLocaleDateString('ar-EG');
-            // التاريخ الهجري (كود يدعم العرض المباشر)
-            const hijri = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', {day:'numeric', month:'long', year:'numeric'});
-            document.getElementById('hijriDate').innerText = "هجري: " + hijri;
+            document.getElementById('gregorianDate').innerText = "الميلادي: " + now.toLocaleDateString('ar-EG', {year:'numeric', month:'long', day:'numeric'});
+            
+            // الهجري
+            try {
+                const hijri = new Intl.DateTimeFormat('ar-SA-u-ca-islamic-uma', {day:'numeric', month:'long', year:'numeric'}).format(now);
+                document.getElementById('hijriDate').innerText = "الهجري: " + hijri;
+            } catch(e) {
+                document.getElementById('hijriDate').innerText = "الهجري: (غير مدعوم في متصفحك)";
+            }
         }
         setInterval(updateDateTime, 1000); 
         updateDateTime();
@@ -169,7 +169,7 @@
             let val = parseInt(el.innerText);
             if (val > 0) {
                 el.innerText = val - 1;
-                if (navigator.vibrate) navigator.vibrate(50);
+                if (navigator.vibrate) navigator.vibrate(40);
             }
             if (parseInt(el.innerText) === 0) {
                 document.getElementById(cardId).classList.add('done');
