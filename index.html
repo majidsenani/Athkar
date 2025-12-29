@@ -17,10 +17,7 @@
             background-size: 60px 60px; background-attachment: fixed; 
         }
         .header-container { background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; }
-        
-        /* عداد الزيارات - مصغر ومنزاح للزاوية */
-        .visitor-counter { position: absolute; top: 5px; left: 10px; font-size: 0.65rem; color: #94a3b8; }
-        
+        .visitor-counter { position: absolute; top: 8px; right: 15px; font-size: 0.6rem; color: #94a3b8; }
         #clock { font-size: 2rem; font-weight: bold; color: var(--secondary); margin: 5px 0; }
         #day-date { font-size: 1rem; color: var(--primary); font-weight: bold; }
         .main-title { background: var(--primary); color: white; padding: 12px; border-radius: 15px; margin-bottom: 25px; font-size: 1.3rem; font-weight: bold; }
@@ -37,7 +34,7 @@
 <body>
 
     <div class="header-container">
-        <div class="visitor-counter">الزيارات: <span id="v-count">0</span></div>
+        <div class="visitor-counter">زيارة: <span id="v-count">...</span></div>
         <div id="day-date">--</div>
         <div id="clock">00:00:00</div>
     </div>
@@ -72,7 +69,7 @@
 
     <div class="card" id="c6">
         <p class="text">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</p>
-        <div class="hamish">وإذا أمسى قال: اللَّهم بك أمسينا...</div>
+        <div class="hamish">وإذا أمسى قال: اللَّهم بك أمسينا، وبك أصبحنا...</div>
         <div class="footer-card"><button class="btn-tap" onclick="reduce('n6','c6', this)">👆</button><span class="count-badge" id="n6">1</span></div>
     </div>
 
@@ -93,7 +90,7 @@
     </div>
 
     <div class="card" id="c10">
-        <p class="text">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أَنْتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكَفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</p>
+        <p class="text">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أنتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكَفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</p>
         <div class="footer-card"><button class="btn-tap" onclick="reduce('n10','c10', this)">👆</button><span class="count-badge" id="n10">3</span></div>
     </div>
 
@@ -176,46 +173,35 @@
     <div style="padding: 40px 0; color: #94a3b8; font-size: 0.75rem;">إشراف ماجد السناني &copy; 2025</div>
 
     <script>
-        // الساعة والتاريخ
         function updateClock() {
             const now = new Date();
             const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
             document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
             document.getElementById('day-date').innerText = days[now.getDay()] + " - " + now.toLocaleDateString('ar-EG', { day:'numeric', month:'long', year:'numeric' });
         }
-        setInterval(updateClock, 1000);
-        updateClock();
+        setInterval(updateClock, 1000); updateClock();
 
-        // زر العداد
         function reduce(id, cardId, btn) {
             let el = document.getElementById(id);
             let val = parseInt(el.innerText);
-            if (val > 0) {
-                val--;
-                el.innerText = val;
-                if (navigator.vibrate) navigator.vibrate(40);
-            }
-            if (val === 0) {
+            if (val > 0) { val--; el.innerText = val; if (navigator.vibrate) navigator.vibrate(40); }
+            if (val === 0) { 
                 document.getElementById(cardId).classList.add('done');
-                btn.innerHTML = "✅";
-                btn.classList.add('completed');
-                btn.disabled = true;
-                el.innerText = "✓";
+                btn.innerHTML = "✅"; btn.classList.add('completed'); btn.disabled = true; el.innerText = "✓";
             }
         }
 
-        // عداد زيارات حقيقي ومشترك (سيبدأ من الصفر للجميع)
-        async function handleVisits() {
+        async function getVisits() {
             try {
-                // ملاحظة: قمت بتعديل المفتاح ليكون جديداً تماماً لضمان البدء من الصفر
-                const response = await fetch('https://api.countapi.xyz/hit/majidsenani-athkar-final/visits');
+                // استخدام خدمة GoatCounter أو CountAPI مع مفتاح فريد جداً
+                const response = await fetch('https://api.countapi.xyz/hit/majidsenani-athkar-ultimate-v2/visits');
                 const data = await response.json();
                 document.getElementById('v-count').innerText = data.value.toLocaleString('ar-EG');
             } catch (e) {
                 document.getElementById('v-count').innerText = "١";
             }
         }
-        handleVisits();
+        getVisits();
     </script>
 </body>
 </html>
