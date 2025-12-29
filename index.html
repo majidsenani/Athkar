@@ -3,79 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أذكار المسلم الشاملة</title>
+    <title>أذكار الصباح والمساء - ماجد السناني</title>
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #27ae60;
-            --bg-color: #f4f7f6;
-        }
-        body { font-family: 'Tahoma', sans-serif; background-color: var(--bg-color); margin: 0; padding: 15px; text-align: center; display: flex; flex-direction: column; min-height: 100vh; }
+        :root { --primary: #2c3e50; --secondary: #27ae60; --bg: #f4f7f6; }
+        body { font-family: 'Tahoma', sans-serif; background-color: var(--bg); margin: 0; padding: 15px; text-align: center; }
         header { padding: 20px; background: white; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        h1 { color: var(--primary-color); margin: 0; font-size: 1.5rem; }
-        .content { flex: 1; }
-        .section-title { color: #7f8c8d; font-size: 0.9rem; margin: 15px 0; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; position: relative; overflow: hidden; }
-        .card.done { background-color: #e8f5e9; opacity: 0.7; }
-        .text { font-size: 1.1rem; color: var(--primary-color); line-height: 1.6; margin-bottom: 15px; }
+        .section-title { background: var(--primary); color: white; padding: 8px; border-radius: 8px; margin: 20px 0 10px; font-size: 1rem; }
+        .card { background: white; border-radius: 15px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .card.done { background-color: #e8f5e9; opacity: 0.6; }
+        .text { font-size: 1.1rem; color: var(--primary); line-height: 1.6; margin-bottom: 15px; font-weight: bold; }
         .footer-card { display: flex; justify-content: space-between; align-items: center; }
-        .count-badge { background: #f0f0f0; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: var(--secondary-color); }
-        button { background-color: var(--secondary-color); color: white; border: none; border-radius: 12px; padding: 12px 25px; font-size: 1rem; cursor: pointer; font-weight: bold; }
-        button:active { transform: scale(0.95); }
-        .reset-btn { background: #95a5a6; margin-top: 20px; padding: 8px 15px; font-size: 0.8rem; border-radius: 8px; color: white; border: none; }
-        
-        /* تصميم الحقوق */
-        footer { margin-top: 40px; padding: 20px; font-size: 0.9rem; color: #7f8c8d; border-top: 1px solid #eee; }
-        .rights { font-weight: bold; color: var(--primary-color); }
+        .count-badge { background: #f0f0f0; padding: 5px 15px; border-radius: 20px; font-weight: bold; color: var(--secondary); }
+        button { background-color: var(--secondary); color: white; border: none; border-radius: 12px; padding: 12px 25px; font-size: 1rem; cursor: pointer; font-weight: bold; }
+        .sebha-section { background: #fff; padding: 20px; border-radius: 50% 50% 15px 15px; border: 4px solid var(--secondary); margin-top: 30px; }
+        .sebha-count { font-size: 3rem; color: var(--primary); font-weight: bold; margin: 10px 0; }
+        .rights { margin-top: 30px; font-size: 0.8rem; color: #7f8c8d; border-top: 1px dotted #ccc; padding-top: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="content">
-        <header>
-            <h1>حصن المسلم الرقمي</h1>
-        </header>
+    <header><h1>أذكار الصباح والمساء</h1></header>
 
-        <div class="section-title">أذكار مختارة</div>
+    <div class="section-title">أذكار الصباح</div>
+    
+    <div class="card" id="s1"><p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ</p>
+    <div class="footer-card"><span class="count-badge">المرات: <span id="n1">1</span></span><button onclick="reduce('n1','s1')">ذكر</button></div></div>
 
-        <div class="card" id="card1">
-            <p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إِلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ</p>
-            <div class="footer-card">
-                <span class="count-badge">المرات: <span id="num1">1</span></span>
-                <button onclick="reduce('num1', 'card1')">ذكر</button>
-            </div>
-        </div>
+    <div class="card" id="s2"><p class="text">اللّهُ لاَ إِلَـهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ (آية الكرسي)</p>
+    <div class="footer-card"><span class="count-badge">المرات: <span id="n2">1</span></span><button onclick="reduce('n2','s2')">ذكر</button></div></div>
 
-        <div class="card" id="card2">
-            <p class="text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضَا نَفْسِهِ، وَزِنَةَ عَرْشِهِ</p>
-            <div class="footer-card">
-                <span class="count-badge">المرات: <span id="num2">3</span></span>
-                <button onclick="reduce('num2', 'card2')">ذكر</button>
-            </div>
-        </div>
+    <div class="card" id="s3"><p class="text">قُلْ هُوَ اللَّهُ أَحَدٌ، قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ، قُلْ أَعُوذُ بِرَبِّ النَّاسِ (3 مرات)</p>
+    <div class="footer-card"><span class="count-badge">المرات: <span id="n3">3</span></span><button onclick="reduce('n3','s3')">ذكر</button></div></div>
 
-        <button class="reset-btn" onclick="location.reload()">إعادة ضبط العدادات</button>
+    <div class="section-title">أذكار المساء</div>
+
+    <div class="card" id="m1"><p class="text">أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ وَالْحَمْدُ لِلَّهِ</p>
+    <div class="footer-card"><span class="count-badge">المرات: <span id="nm1">1</span></span><button onclick="reduce('nm1','m1')">ذكر</button></div></div>
+
+    <div class="card" id="m2"><p class="text">بِاسْمِ اللَّهِ الَّذِي لا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الأَرْضِ وَلا فِي السَّمَاءِ</p>
+    <div class="footer-card"><span class="count-badge">المرات: <span id="nm2">3</span></span><button onclick="reduce('nm2','m2')">ذكر</button></div></div>
+
+    <div class="section-title">سبحة إلكترونية</div>
+    <div class="sebha-section">
+        <div class="sebha-count" id="sCount">0</div>
+        <button style="width: 100px; height: 100px; border-radius: 50%;" onclick="incrementSebha()">تسبيح</button>
+        <br><br>
+        <button class="reset-btn" onclick="resetSebha()" style="background:#95a5a6; padding:5px 10px;">تصفير</button>
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة لصاحب العمل <br> <span class="rights">ماجد السناني</span> &copy; 2025</p>
-    </footer>
+    <div class="rights">جميع الحقوق محفوظة لصاحب العمل ماجد السناني &copy; 2025</div>
 
     <script>
-        function reduce(numId, cardId) {
-            let countEl = document.getElementById(numId);
-            let cardEl = document.getElementById(cardId);
-            let current = parseInt(countEl.innerText);
-            
-            if (current > 0) {
-                countEl.innerText = current - 1;
-                if (navigator.vibrate) navigator.vibrate(50);
+        function reduce(id, cardId) {
+            let el = document.getElementById(id);
+            let val = parseInt(el.innerText);
+            if (val > 0) {
+                el.innerText = val - 1;
+                if (navigator.vibrate) navigator.vibrate(40);
             }
-            
-            if (parseInt(countEl.innerText) === 0) {
-                cardEl.classList.add('done');
-                countEl.innerText = "تم";
+            if (parseInt(el.innerText) === 0) {
+                document.getElementById(cardId).classList.add('done');
+                el.innerText = "تم";
             }
+        }
+
+        let sCounter = 0;
+        function incrementSebha() {
+            sCounter++;
+            document.getElementById('sCount').innerText = sCounter;
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+        function resetSebha() {
+            sCounter = 0;
+            document.getElementById('sCount').innerText = sCounter;
         }
     </script>
 </body>
