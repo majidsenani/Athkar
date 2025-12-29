@@ -31,4 +31,118 @@
     <div class="section-title">الأذكار الأساسية</div>
 
     <div class="card" id="c1">
-        <p class="text">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّ
+        <p class="text">أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ<br>﴿اللّهُ لاَ إِلَـٰهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ﴾ (آية الكرسي)</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n1">1</span></span>
+            <button onclick="reduce('n1','c1')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c2">
+        <p class="text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ﴾ ، ﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ﴾ ، ﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ﴾</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n2">3</span></span>
+            <button onclick="reduce('n2','c2')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c3">
+        <p class="text">أصبحنا وأصبح (أمسينا وأمسى) الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له...</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n3">1</span></span>
+            <button onclick="reduce('n3','c3')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c4">
+        <p class="text">رضيت بالله ربًا، وبالإسلام دينًا، وبمحمد ﷺ نبيًا</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n4">3</span></span>
+            <button onclick="reduce('n4','c4')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c5">
+        <p class="text">اللهم عافني في بدني، اللهم عافني في سمعي، اللهم عافني في بصري</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n5">3</span></span>
+            <button onclick="reduce('n5','c5')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c6">
+        <p class="text">حسبي الله لا إله إلا هو، عليه توكلت وهو رب العرش العظيم</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n6">7</span></span>
+            <button onclick="reduce('n6','c6')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c7">
+        <p class="text">بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n7">3</span></span>
+            <button onclick="reduce('n7','c7')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c8">
+        <p class="text">يا حي يا قيوم، برحمتك أستغيث، أصلح لي شأني كله ولا تكلني إلى نفسي طرفة عين</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n8">1</span></span>
+            <button onclick="reduce('n8','c8')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="card" id="c9">
+        <p class="text">سبحان الله وبحمده</p>
+        <div class="footer-card">
+            <span class="count-badge">المرات: <span id="n9">100</span></span>
+            <button onclick="reduce('n9','c9')">ذكر</button>
+        </div>
+    </div>
+
+    <div class="section-title">سبحة إلكترونية مفتوحة</div>
+    <div class="sebha-section">
+        <div class="sebha-count" id="sCount">0</div>
+        <button style="width: 120px; height: 120px; border-radius: 50%; font-size: 1.3rem;" onclick="incrementSebha()">تسبيح</button>
+        <br><br>
+        <button onclick="resetSebha()" style="background:#95a5a6; padding:8px 20px; font-size: 0.9rem; border-radius: 8px;">تصفير العداد</button>
+    </div>
+
+    <div class="rights">
+        جميع الحقوق محفوظة لصاحب العمل<br>
+        <strong>ماجد السناني</strong> &copy; 2025<br>
+        <small>تحديث تلقائي: أذكار الصباح والمساء</small>
+    </div>
+
+    <script>
+        function reduce(id, cardId) {
+            let el = document.getElementById(id);
+            let card = document.getElementById(cardId);
+            let val = parseInt(el.innerText);
+            if (val > 0) {
+                el.innerText = val - 1;
+                if (navigator.vibrate) navigator.vibrate(45);
+            }
+            if (parseInt(el.innerText) === 0) {
+                card.classList.add('done');
+                el.innerText = "تم";
+            }
+        }
+
+        let sCounter = 0;
+        function incrementSebha() {
+            sCounter++;
+            document.getElementById('sCount').innerText = sCounter;
+            if (navigator.vibrate) navigator.vibrate(60);
+        }
+        function resetSebha() {
+            if(confirm("هل تريد تصفير السبحة؟")) {
+                sCounter = 0;
+                document.getElementById('sCount').innerText = sCounter;
+            }
+        }
+    </script>
+</body>
+</html>
