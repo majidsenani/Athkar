@@ -138,42 +138,41 @@ body{
 function updateClock(){
     const now=new Date();
     const days=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
-    document.getElementById("clock").innerText =
-        now.toLocaleTimeString('ar-SA');
-    document.getElementById("day-date").innerText =
-        days[now.getDay()]+" - "+
-        now.toLocaleDateString('ar-EG',{day:'numeric',month:'long',year:'numeric'});
+    clock.innerText=now.toLocaleTimeString('ar-SA');
+    day-date.innerText=days[now.getDay()]+" - "+now.toLocaleDateString('ar-EG',{day:'numeric',month:'long',year:'numeric'});
 }
-setInterval(updateClock,1000);
-updateClock();
+setInterval(updateClock,1000);updateClock();
 
-// ✅ العداد الموحد الحقيقي (التغيير الوحيد)
+// العداد الموحد
 async function syncGlobalCounter(){
     const span=document.getElementById("v-count");
-    const KEY="majid_senani_athkar_GLOBAL"; // ثابت للجميع
+    const key="majid_senani_2025";
 
     try{
-        const r=await fetch(
-            `https://api.counterapi.dev/v1/${KEY}/visits/increment`
-        );
-        const d=await r.json();
-        span.innerText=d.count.toLocaleString('ar-EG');
+        if(localStorage.getItem("visited")){
+            const r=await fetch(`https://api.counterapi.dev/v1/${key}/visits`);
+            const d=await r.json();
+            span.innerText=d.count.toLocaleString('ar-EG');
+        }else{
+            const r=await fetch(`https://api.counterapi.dev/v1/${key}/visits/increment`);
+            const d=await r.json();
+            span.innerText=d.count.toLocaleString('ar-EG');
+            localStorage.setItem("visited","yes");
+        }
     }catch{
         span.innerText="—";
     }
 }
 syncGlobalCounter();
 
-// عداد الأذكار (كما هو)
+// عداد الأذكار
 function reduce(id,card,btn){
     const el=document.getElementById(id);
     let v=parseInt(el.innerText);
     if(v>0){v--;el.innerText=v;}
     if(v===0){
         document.getElementById(card).classList.add("done");
-        btn.innerHTML="✅";
-        btn.disabled=true;
-        btn.classList.add("completed");
+        btn.innerHTML="✅";btn.disabled=true;btn.classList.add("completed");
         el.innerText="✓";
     }
 }
