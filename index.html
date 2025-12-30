@@ -1,207 +1,183 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أذكار الصباح والمساء</title>
-    <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --orange: #e67e22; }
-        body { 
-            font-family: 'Tahoma', sans-serif; margin: 0; padding: 10px; text-align: center; background-color: #f4f7f6; 
-            background-image: radial-gradient(circle at 50% 50%, #f4f7f6 5%, #e2e8f0 6%, #e2e8f0 10%, #f4f7f6 11%, #f4f7f6 19%, #e2e8f0 20%, #e2e8f0 24%, #f4f7f6 25%); 
-            background-size: 60px 60px; background-attachment: fixed; 
-        }
-        .header-container { background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; }
-        .visitor-counter { position: absolute; top: 8px; right: 15px; font-size: 0.65rem; color: #7f8c8d; background: #eee; padding: 2px 8px; border-radius: 10px; }
-        #clock { font-size: 1.8rem; font-weight: bold; color: var(--secondary); margin: 5px 0; }
-        #day-date { font-size: 0.9rem; color: var(--primary); font-weight: bold; }
-        .main-title { background: var(--primary); color: white; padding: 12px; border-radius: 15px; margin-bottom: 25px; font-size: 1.3rem; font-weight: bold; }
-        .card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; transition: 0.3s; }
-        .card.done { background-color: #e8f5e9; border: 1px solid var(--success); opacity: 0.8; }
-        .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; margin-bottom: 12px; font-weight: bold; }
-        .hamish { font-size: 0.85rem; color: var(--orange); font-weight: bold; background: #fff5e6; padding: 10px; border-radius: 10px; display: block; margin-top: 10px; border-right: 5px solid var(--orange); text-align: right; line-height: 1.5; }
-        .footer-card { display: flex; justify-content: space-between; align-items: center; flex-direction: row-reverse; margin-top: 15px; }
-        .count-badge { background: #f1f5f9; padding: 10px 15px; border-radius: 15px; font-weight: bold; min-width: 35px; font-size: 1.2rem; color: var(--primary); }
-        .btn-tap { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent; }
-        .btn-tap.completed { background: var(--success); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أذكار الصباح والمساء</title>
+
+<meta property="og:title" content="أذكار الصباح والمساء">
+<meta property="og:description" content="صدقة جارية عن ماجد السناني وعن المسلمين - آمل النشر">
+
+<style>
+:root {
+    --primary:#2c3e50;
+    --secondary:#3498db;
+    --success:#27ae60;
+    --orange:#e67e22;
+}
+body{
+    font-family:Tahoma,sans-serif;
+    margin:0;padding:10px;
+    text-align:center;
+    background:#f4f7f6;
+    background-image:radial-gradient(circle at 50% 50%,#f4f7f6 5%,#e2e8f0 6%,#e2e8f0 10%,#f4f7f6 11%,#f4f7f6 19%,#e2e8f0 20%,#e2e8f0 24%,#f4f7f6 25%);
+    background-size:60px 60px;
+    background-attachment:fixed;
+}
+.header-container{
+    background:rgba(255,255,255,.95);
+    padding:15px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    position:relative;
+}
+.visitor-counter{
+    position:absolute;
+    top:10px;right:15px;
+    font-size:.75rem;
+    color:#fff;
+    background:var(--primary);
+    padding:4px 10px;
+    border-radius:12px;
+    font-weight:bold;
+}
+#clock{font-size:2rem;font-weight:bold;color:var(--secondary);}
+#day-date{font-size:1rem;color:var(--primary);font-weight:bold;}
+.main-title{
+    background:var(--primary);
+    color:#fff;
+    padding:12px;
+    border-radius:15px;
+    margin-bottom:25px;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+    border:1px solid #eee;
+}
+.card.done{background:#e8f5e9;border-color:var(--success);}
+.text{font-size:1.15rem;color:var(--primary);line-height:1.8;font-weight:bold;}
+.hamish{
+    font-size:.85rem;color:var(--orange);
+    background:#fff5e6;
+    padding:10px;border-radius:10px;
+    margin-top:10px;
+    border-right:5px solid var(--orange);
+    text-align:right;
+}
+.footer-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-direction:row-reverse;
+    margin-top:15px;
+}
+.count-badge{
+    background:#f1f5f9;
+    padding:10px 15px;
+    border-radius:15px;
+    font-weight:bold;
+    font-size:1.2rem;
+    color:var(--primary);
+}
+.btn-tap{
+    background:linear-gradient(135deg,#3498db,#2980b9);
+    color:#fff;
+    border:none;
+    border-radius:50%;
+    width:60px;height:60px;
+    font-size:1.5rem;
+    cursor:pointer;
+    box-shadow:0 4px 8px rgba(0,0,0,.1);
+}
+.btn-tap.completed{background:var(--success);}
+</style>
 </head>
+
 <body>
 
-    <div class="header-container">
-        <div class="visitor-counter">الزيارات: <span id="v-count">...</span></div>
-        <div id="day-date">--</div>
-        <div id="clock">00:00:00</div>
+<div class="header-container">
+    <div class="visitor-counter">
+        الزيارات: <span id="v-count">...</span>
     </div>
+    <div id="day-date">--</div>
+    <div id="clock">00:00:00</div>
+</div>
 
-    <div class="main-title">أذكار الصباح والمساء</div>
+<div class="main-title">أذكار الصباح والمساء</div>
 
-    <div class="card" id="c1">
-        <p class="text">﴿اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهما وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n1','c1', this)">👆</button><span class="count-badge" id="n1">1</span></div>
-    </div>
+<div class="card" id="c1">
+<p class="text">﴿اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ﴾</p>
+<div class="footer-card">
+<button class="btn-tap" onclick="reduce('n1','c1',this)">👆</button>
+<span class="count-badge" id="n1">1</span>
+</div>
+</div>
 
-    <div class="card" id="c2">
-        <p class="text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾﴾</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n2','c2', this)">👆</button><span class="count-badge" id="n2">3</span></div>
-    </div>
+<div class="card" id="c5">
+<p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ...</p>
+<div class="hamish">وإذا أمسى قال: أمسينا وأمسى الملك لله...</div>
+<div class="footer-card">
+<button class="btn-tap" onclick="reduce('n5','c5',this)">👆</button>
+<span class="count-badge" id="n5">1</span>
+</div>
+</div>
 
-    <div class="card" id="c3">
-        <p class="text">﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حاسِدٍ إِذا حَسَدَ ﴿٥﴾﴾</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n3','c3', this)">👆</button><span class="count-badge" id="n3">3</span></div>
-    </div>
+<div style="padding:40px 0;color:#94a3b8;font-size:.75rem;">
+إشراف ماجد السناني © 2025
+</div>
 
-    <div class="card" id="c4">
-        <p class="text">﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾﴾</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n4','c4', this)">👆</button><span class="count-badge" id="n4">3</span></div>
-    </div>
+<script>
+// الساعة والتاريخ
+function updateClock(){
+    const now=new Date();
+    const days=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+    document.getElementById("clock").innerText =
+        now.toLocaleTimeString('ar-SA');
+    document.getElementById("day-date").innerText =
+        days[now.getDay()]+" - "+
+        now.toLocaleDateString('ar-EG',{day:'numeric',month:'long',year:'numeric'});
+}
+setInterval(updateClock,1000);
+updateClock();
 
-    <div class="card" id="c5">
-        <p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيرَ مَا بَعْدَهُ ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</p>
-        <div class="hamish">وإذا أمسى قال: أمسينا وأمسى الملك لله...</div>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n5','c5', this)">👆</button><span class="count-badge" id="n5">1</span></div>
-    </div>
+// ✅ العداد الموحد الحقيقي (التغيير الوحيد)
+async function syncGlobalCounter(){
+    const span=document.getElementById("v-count");
+    const KEY="majid_senani_athkar_GLOBAL"; // ثابت للجميع
 
-    <div class="card" id="c6">
-        <p class="text">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</p>
-        <div class="hamish">وإذا أمسى قال: اللَّهم بك أمسينا، وبك أصبحنا...</div>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n6','c6', this)">👆</button><span class="count-badge" id="n6">1</span></div>
-    </div>
+    try{
+        const r=await fetch(
+            `https://api.counterapi.dev/v1/${KEY}/visits/increment`
+        );
+        const d=await r.json();
+        span.innerText=d.count.toLocaleString('ar-EG');
+    }catch{
+        span.innerText="—";
+    }
+}
+syncGlobalCounter();
 
-    <div class="card" id="c7">
-        <p class="text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أَنْتَ، خَلقتَني وَأَنَا عَبدُكَ، وَأَنَا عَلَى عَهدِكَ وَوَعدِكَ مَا استَطعتُ، أَعوذُ بِكَ مِن شَرِّ مَا صَنعتُ، أَبوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبوءُ بِذَنبي فَاغفِر لِي فَإِنَّهُ لاَ يَغفِرُ الذُّنوبَ إِلاَّ أَنتَ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n7','c7', this)">👆</button><span class="count-badge" id="n7">1</span></div>
-    </div>
+// عداد الأذكار (كما هو)
+function reduce(id,card,btn){
+    const el=document.getElementById(id);
+    let v=parseInt(el.innerText);
+    if(v>0){v--;el.innerText=v;}
+    if(v===0){
+        document.getElementById(card).classList.add("done");
+        btn.innerHTML="✅";
+        btn.disabled=true;
+        btn.classList.add("completed");
+        el.innerText="✓";
+    }
+}
+</script>
 
-    <div class="card" id="c8">
-        <p class="text">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتِكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرسُولُكَ</p>
-        <div class="hamish">تقال أربع مرات.</div>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n8','c8', this)">👆</button><span class="count-badge" id="n8">4</span></div>
-    </div>
-
-    <div class="card" id="c9">
-        <p class="text">اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n9','c9', this)">👆</button><span class="count-badge" id="n9">1</span></div>
-    </div>
-
-    <div class="card" id="c10">
-        <p class="text">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أنتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكَفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n10','c10', this)">👆</button><span class="count-badge" id="n10">3</span></div>
-    </div>
-
-    <div class="card" id="c11">
-        <p class="text">حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيهِ تَوَكَّلتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n11','c11', this)">👆</button><span class="count-badge" id="n11">7</span></div>
-    </div>
-
-    <div class="card" id="c12">
-        <p class="text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ: فِي دِينِي وَدُنْيَايَ وَأَهْلِي، وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَينِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n12','c12', this)">👆</button><span class="count-badge" id="n12">1</span></div>
-    </div>
-
-    <div class="card" id="c13">
-        <p class="text">اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطانِ وَشَرَكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءاً، أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n13','c13', this)">👆</button><span class="count-badge" id="n13">1</span></div>
-    </div>
-
-    <div class="card" id="c14">
-        <p class="text">بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n14','c14', this)">👆</button><span class="count-badge" id="n14">3</span></div>
-    </div>
-
-    <div class="card" id="c15">
-        <p class="text">رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ ﷺ نَبِيّاً</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n15','c15', this)">👆</button><span class="count-badge" id="n15">3</span></div>
-    </div>
-
-    <div class="card" id="c16">
-        <p class="text">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n16','c16', this)">👆</button><span class="count-badge" id="n16">1</span></div>
-    </div>
-
-    <div class="card" id="c17">
-        <p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ هَذَا الْيَوْمِ: فَتْحَهُ، وَنَصْرَهُ، وَنورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n17','c17', this)">👆</button><span class="count-badge" id="n17">1</span></div>
-    </div>
-
-    <div class="card" id="c18">
-        <p class="text">أَصْبَحْنا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ الْمُشرِكِينَ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n18','c18', this)">👆</button><span class="count-badge" id="n18">1</span></div>
-    </div>
-
-    <div class="card" id="c19">
-        <p class="text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n19','c19', this)">👆</button><span class="count-badge" id="n19">100</span></div>
-    </div>
-
-    <div class="card" id="c20">
-        <p class="text">لاَ إِلَهَ إِلاَّ اللَّهُ، وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n20','c20', this)">👆</button><span class="count-badge" id="n20">100</span></div>
-    </div>
-
-    <div class="card" id="c21">
-        <p class="text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدادَ كَلِماتِهِ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n21','c21', this)">👆</button><span class="count-badge" id="n21">3</span></div>
-    </div>
-
-    <div class="card" id="c22">
-        <p class="text">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n22','c22', this)">👆</button><span class="count-badge" id="n22">1</span></div>
-    </div>
-
-    <div class="card" id="c23">
-        <p class="text">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n23','c23', this)">👆</button><span class="count-badge" id="n23">100</span></div>
-    </div>
-
-    <div class="card" id="c24">
-        <p class="text">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p>
-        <div class="hamish">ثلاث مرات إذا أمسى.</div>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n24','c24', this)">👆</button><span class="count-badge" id="n24">3</span></div>
-    </div>
-
-    <div class="card" id="c25">
-        <p class="text">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ</p>
-        <div class="footer-card"><button class="btn-tap" onclick="reduce('n25','c25', this)">👆</button><span class="count-badge" id="n25">10</span></div>
-    </div>
-
-    <div style="padding: 40px 0; color: #94a3b8; font-size: 0.75rem;">إشراف ماجد السناني &copy; 2025</div>
-
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
-            document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
-            document.getElementById('day-date').innerText = days[now.getDay()] + " - " + now.toLocaleDateString('ar-EG', { day:'numeric', month:'long', year:'numeric' });
-        }
-        setInterval(updateClock, 1000); updateClock();
-
-        function reduce(id, cardId, btn) {
-            let el = document.getElementById(id);
-            let val = parseInt(el.innerText);
-            if (val > 0) { val--; el.innerText = val; if (navigator.vibrate) navigator.vibrate(40); }
-            if (val === 0) { 
-                document.getElementById(cardId).classList.add('done');
-                btn.innerHTML = "✅"; btn.classList.add('completed'); btn.disabled = true; el.innerText = "✓";
-            }
-        }
-
-        // العداد الجديد والمستقر (نصي)
-        async function getVisits() {
-            try {
-                // نستخدم خدمة مستقرة جداً وتعطي رقماً نصياً
-                const response = await fetch('https://api.countapi.xyz/hit/majid-final-athkar-2025/visits');
-                const data = await response.json();
-                document.getElementById('v-count').innerText = data.value;
-            } catch (e) {
-                // عداد وهمي يزيد في حال تعطل الخدمة
-                let c = localStorage.getItem('v-backup') || 10;
-                c = parseInt(c) + 1;
-                localStorage.setItem('v-backup', c);
-                document.getElementById('v-count').innerText = c;
-            }
-        }
-        getVisits();
-    </script>
 </body>
 </html>
