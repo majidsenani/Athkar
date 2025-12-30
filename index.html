@@ -5,26 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أذكار الصباح والمساء - ماجد السناني</title>
     <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --orange: #e67e22; --amnco-red: #9b1b1e; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --orange: #e67e22; }
         body { font-family: 'Tahoma', sans-serif; margin: 0; padding: 10px; text-align: center; background-color: #f4f7f6; background-image: radial-gradient(circle at 50% 50%, #f4f7f6 5%, #e2e8f0 6%, #e2e8f0 10%, #f4f7f6 11%, #f4f7f6 19%, #e2e8f0 20%, #e2e8f0 24%, #f4f7f6 25%); background-size: 60px 60px; background-attachment: fixed; }
-        .header-container { background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; min-height: 110px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .header-container { background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; min-height: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         
-        /* شعار أمنكو كامل وغير محذوف */
-        .amnco-logo-box { position: absolute; top: 15px; left: 15px; text-align: left; }
-        .amnco-arabic { color: var(--amnco-red); font-size: 22px; font-weight: bold; display: block; line-height: 1; }
-        .amnco-english { color: #333; font-size: 12px; font-weight: bold; display: block; line-height: 1.2; }
-
         .visitor-counter { position: absolute; top: 15px; right: 15px; font-size: 0.75rem; color: #fff; background: var(--primary); padding: 5px 12px; border-radius: 12px; font-weight: bold; }
-        #clock { font-size: 2rem; font-weight: bold; color: var(--secondary); margin-top: 15px; }
-        #day-date { font-size: 0.9rem; color: var(--primary); font-weight: bold; }
+        #clock { font-size: 2.2rem; font-weight: bold; color: var(--secondary); margin-top: 10px; }
+        #day-date { font-size: 1rem; color: var(--primary); font-weight: bold; }
+        
         .main-title { background: var(--primary); color: white; padding: 12px; border-radius: 15px; margin-bottom: 25px; font-size: 1.3rem; font-weight: bold; }
         .card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
         .card.done { background-color: #e8f5e9; border: 1px solid var(--success); opacity: 0.8; }
-        .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; margin-bottom: 12px; font-weight: bold; }
-        .hamish { font-size: 0.85rem; color: var(--orange); font-weight: bold; background: #fff5e6; padding: 10px; border-radius: 10px; display: block; margin-top: 10px; border-right: 5px solid var(--orange); text-align: right; }
+        .text { font-size: 1.2rem; color: var(--primary); line-height: 1.8; margin-bottom: 12px; font-weight: bold; }
+        .hamish { font-size: 0.9rem; color: var(--orange); font-weight: bold; background: #fff5e6; padding: 10px; border-radius: 10px; display: block; margin-top: 10px; border-right: 5px solid var(--orange); text-align: right; line-height: 1.5; }
+        
         .footer-card { display: flex; justify-content: space-between; align-items: center; flex-direction: row-reverse; margin-top: 15px; }
-        .count-badge { background: #f1f5f9; padding: 10px 15px; border-radius: 15px; font-weight: bold; min-width: 35px; font-size: 1.2rem; color: var(--primary); }
-        .btn-tap { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; border-radius: 50%; width: 55px; height: 55px; font-size: 1.4rem; cursor: pointer; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent; }
+        .count-badge { background: #f1f5f9; padding: 10px 15px; border-radius: 15px; font-weight: bold; min-width: 40px; font-size: 1.3rem; color: var(--primary); }
+        .btn-tap { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent; }
         .btn-tap.completed { background: var(--success); }
     </style>
 </head>
@@ -32,10 +29,6 @@
 
     <div class="header-container">
         <div class="visitor-counter">الزيارات: <span id="v-count">...</span></div>
-        <div class="amnco-logo-box">
-            <span class="amnco-arabic">امنكو</span>
-            <span class="amnco-english">AMNCO</span>
-        </div>
         <div id="day-date">--</div>
         <div id="clock">00:00:00</div>
     </div>
@@ -92,7 +85,7 @@
         async function syncCounter() {
             const vSpan = document.getElementById('v-count');
             try {
-                const response = await fetch('https://api.counterapi.dev/v1/majid_amnco_final/visit/increment');
+                const response = await fetch('https://api.counterapi.dev/v1/majid_senani_new/visit/increment');
                 const data = await response.json();
                 if(data.count) vSpan.innerText = data.count.toLocaleString('ar-EG');
             } catch (e) { vSpan.innerText = "متصل"; }
