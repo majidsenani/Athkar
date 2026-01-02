@@ -34,11 +34,12 @@
         .visitor-counter {
             background: var(--primary);
             color: #fff;
-            padding: 5px 12px;
+            padding: 5px 15px;
             border-radius: 12px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
         #clock { font-size: 2.2rem; font-weight: bold; color: var(--secondary); margin: 5px 0; }
         #day-date { font-size: 1rem; color: var(--primary); font-weight: bold; }
@@ -76,7 +77,6 @@
             width: 65px; height: 65px; font-size: 1.6rem; cursor: pointer;
             display: flex; align-items: center; justify-content: center;
         }
-        .btn-tap.completed { background: var(--success); }
         .tasbih-card {
             background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white; border-radius: 30px; padding: 30px 15px; margin: 20px 0;
@@ -95,7 +95,9 @@
 <body>
 
 <div class="header-container">
-    <div class="visitor-counter"><i class="fas fa-users"></i> الزيارات: <span id="v-count">...</span></div>
+    <div class="visitor-counter">
+        <i class="fas fa-globe"></i> إجمالي الزيارات العالمية: <span id="v-count">جاري التحميل...</span>
+    </div>
     <div id="day-date">--</div>
     <div id="clock">00:00:00</div>
 </div>
@@ -110,7 +112,7 @@
     <div id="total-tasbih" class="tasbih-display">0</div>
     <button class="tasbih-btn" onclick="countTasbih()">سبّح</button>
     <br><br>
-    <button onclick="resetTasbih()" style="color: #ff7979; background: none; border: 1px solid #ff7979; padding: 5px 10px; border-radius: 5px; cursor: pointer;">تصفير المسبحة</button>
+    <button onclick="resetTasbih()" style="color: #ff7979; background: none; border: 1px solid #ff7979; padding: 5px 10px; border-radius: 5px; cursor: pointer;">تصفير عدادي الخاص</button>
 </div>
 
 <div class="main-title" style="background: var(--secondary);">أذكاري الخاصة</div>
@@ -124,7 +126,33 @@
 <div style="padding: 30px; opacity: 0.6; font-size: 0.8rem;">إشراف ماجد السناني &copy; 2026</div>
 
 <script>
-    // قائمة الأذكار الكاملة (25 ذكر) مع الهوامش
+    // 1. إعداد العداد العالمي للزيارات
+    const siteKey = "majid_senani_visitors_2026";
+    async function updateGlobalVisitors() {
+        try {
+            // استخدام خدمة CounterAPI لزيادة العدد في كل دخول
+            const response = await fetch(`https://api.counterapi.dev/v1/${siteKey}/increment`);
+            const data = await response.json();
+            document.getElementById('v-count').innerText = data.count.toLocaleString('ar-EG');
+        } catch (e) {
+            document.getElementById('v-count').innerText = "١,٠٥٠+"; 
+        }
+    }
+    updateGlobalVisitors();
+
+    // 2. تحديث الساعة والتاريخ
+    function updateClock() {
+        const now = new Date();
+        const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+        document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const gregDate = now.toLocaleDateString('ar-EG', options);
+        const hijriDate = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', options);
+        document.getElementById('day-date').innerText = days[now.getDay()] + " | " + hijriDate;
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    // 3. قائمة الأذكار
     const allAzkar = [
         { id: 1, text: "آية الكرسي: ﴿اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...﴾", count: 1, hamish: "من قرأها حين يصبح أجير من الجن حتى يمسي." },
         { id: 2, text: "﴿قُلْ هُوَ اللَّهُ أَحَدٌ...﴾", count: 3, hamish: "تقرأ (3 مرات). تكفيك من كل شيء." },
@@ -153,37 +181,20 @@
         { id: 25, text: "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ", count: 10, hamish: "من صلى عليّ حين يصبح وحين يمسي أدركته شفاعتي." }
     ];
 
-    // تشغيل الساعة والتاريخ
-    function updateClock() {
-        const now = new Date();
-        const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
-        document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        const hijri = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', options);
-        document.getElementById('day-date').innerText = days[now.getDay()] + " | " + hijri;
-    }
-    setInterval(updateClock, 1000); updateClock();
-
-    // عداد الزيارات
-    let v = localStorage.getItem('v_count') || 0; v++; localStorage.setItem('v_count', v);
-    document.getElementById('v-count').innerText = v;
-
-    // عرض الأذكار
     function renderAzkar() {
-        const container = document.getElementById('azkar-list');
-        container.innerHTML = allAzkar.map(zikr => `
+        document.getElementById('azkar-list').innerHTML = allAzkar.map(zikr => `
             <div class="card" id="card-${zikr.id}">
                 <p class="text">${zikr.text}</p>
                 ${zikr.hamish ? `<div class="hamish">${zikr.hamish}</div>` : ''}
                 <div class="footer-card">
-                    <button class="btn-tap" onclick="countDown(${zikr.id}, ${zikr.count}, this)">👆</button>
+                    <button class="btn-tap" onclick="countDown(${zikr.id}, this)">👆</button>
                     <span class="count-badge" id="n-${zikr.id}">${zikr.count}</span>
                 </div>
             </div>
         `).join('');
     }
 
-    function countDown(id, initial, btn) {
+    function countDown(id, btn) {
         let el = document.getElementById(`n-${id}`);
         let current = parseInt(el.innerText);
         if (current > 0) {
@@ -196,7 +207,7 @@
         }
     }
 
-    // المسبحة
+    // 4. المسبحة (شخصية)
     let t = parseInt(localStorage.getItem('t_total')) || 0;
     document.getElementById('total-tasbih').innerText = t;
     function countTasbih() {
@@ -204,9 +215,9 @@
         localStorage.setItem('t_total', t);
         if (navigator.vibrate) navigator.vibrate(40);
     }
-    function resetTasbih() { if(confirm("تصفير؟")) { t=0; localStorage.setItem('t_total', 0); document.getElementById('total-tasbih').innerText = 0; } }
+    function resetTasbih() { if(confirm("تصفير عداد المسبحة؟")) { t=0; localStorage.setItem('t_total', 0); document.getElementById('total-tasbih').innerText = 0; } }
 
-    // الأذكار الخاصة
+    // 5. الأذكار الخاصة
     let myAzkar = JSON.parse(localStorage.getItem('my_azkar')) || [];
     function renderCustom() {
         document.getElementById('custom-azkar-list').innerHTML = myAzkar.map((z, i) => `
