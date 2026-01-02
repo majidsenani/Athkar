@@ -2,250 +2,236 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>أذكار الصباح والمساء - ماجد السناني</title>
-    <style>
-        :root { --primary: #2c3e50; --secondary: #3498db; --success: #27ae60; --orange: #e67e22; --danger: #e74c3c; --purple: #8e44ad; }
-        body { font-family: 'Tahoma', sans-serif; margin: 0; padding: 10px; text-align: center; background-color: #f4f7f6; background-image: radial-gradient(circle at 50% 50%, #f4f7f6 5%, #e2e8f0 6%, #e2e8f0 10%, #f4f7f6 11%, #f4f7f6 19%, #e2e8f0 20%, #e2e8f0 24%, #f4f7f6 25%); background-size: 60px 60px; background-attachment: fixed; }
-        .header-container { background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; min-height: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-        .visitor-counter { position: absolute; top: 15px; right: 15px; font-size: 0.75rem; color: #fff; background: var(--primary); padding: 5px 12px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 5px; }
-        .visitor-counter i { font-size: 0.7rem; }
-        .visitor-counter.loading { opacity: 0.7; }
-        .visitor-counter.error { background: var(--danger); }
-        #clock { font-size: 2rem; font-weight: bold; color: var(--secondary); margin-top: 10px; }
-        #day-date { font-size: 0.9rem; color: var(--primary); font-weight: bold; }
-        .main-title { background: var(--primary); color: white; padding: 12px; border-radius: 15px; margin-bottom: 25px; font-size: 1.3rem; font-weight: bold; }
-        .card { background: white; border-radius: 20px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; position: relative; }
-        .card.done { background-color: #e8f5e9; border: 1px solid var(--success); opacity: 0.8; }
-        .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; margin-bottom: 12px; font-weight: bold; }
-        .hamish { font-size: 0.85rem; color: var(--orange); font-weight: bold; background: #fff5e6; padding: 10px; border-radius: 10px; display: block; margin-top: 10px; border-right: 5px solid var(--orange); text-align: right; line-height: 1.5; }
-        .footer-card { display: flex; justify-content: space-between; align-items: center; flex-direction: row-reverse; margin-top: 15px; }
-        .count-badge { background: #f1f5f9; padding: 10px 15px; border-radius: 15px; font-weight: bold; min-width: 40px; font-size: 1.3rem; color: var(--primary); }
-        .btn-tap { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; -webkit-tap-highlight-color: transparent; }
-        .btn-tap.completed { background: var(--success); }
-        .tasbih-card { background: linear-gradient(135deg, #2c3e50, #34495e); color: white; border-radius: 30px; padding: 25px 15px; margin: 20px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-        .tasbih-display { font-size: 3.5rem; font-weight: bold; margin: 10px 0; color: #2ecc71; text-shadow: 0 0 10px rgba(46, 204, 113, 0.4); }
-        .tasbih-btn { width: 110px; height: 110px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.1); background: #3498db; color: white; font-size: 1.4rem; font-weight: bold; cursor: pointer; box-shadow: 0 5px 0 #2980b9; transition: 0.1s; margin: 15px 0; -webkit-tap-highlight-color: transparent; }
-        .tasbih-btn:active { transform: translateY(3px); box-shadow: 0 2px 0 #2980b9; }
-        .add-section { background: #fff; padding: 20px; border-radius: 20px; margin: 30px 0; border: 2px dashed var(--secondary); }
-        input, textarea { width: 90%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; font-size: 1rem; }
-        .btn-add { background: var(--secondary); color: white; border: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        .delete-btn { position: absolute; top: 10px; left: 10px; background: none; border: none; color: var(--danger); font-size: 0.8rem; cursor: pointer; }
-        .counter-animation { animation: pulse 1s ease-in-out; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-        .visitor-stats { margin-top: 5px; font-size: 0.6rem; opacity: 0.8; }
-    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #27ae60;
+            --orange: #e67e22;
+            --danger: #e74c3c;
+            --purple: #8e44ad;
+        }
+        body {
+            font-family: 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 10px;
+            text-align: center;
+            background-color: #f4f7f6;
+            background-image: radial-gradient(circle at 50% 50%, #f4f7f6 5%, #e2e8f0 6%, #e2e8f0 10%, #f4f7f6 11%, #f4f7f6 19%, #e2e8f0 20%, #e2e8f0 24%, #f4f7f6 25%);
+            background-size: 60px 60px;
+            background-attachment: fixed;
+        }
+        .header-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .visitor-counter {
+            background: var(--primary);
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        #clock { font-size: 2.2rem; font-weight: bold; color: var(--secondary); margin: 5px 0; }
+        #day-date { font-size: 1rem; color: var(--primary); font-weight: bold; }
+        .main-title {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            text-align: right;
+            position: relative;
+        }
+        .card.done { background-color: #e8f5e9; border-color: var(--success); opacity: 0.8; }
+        .text { font-size: 1.15rem; color: var(--primary); line-height: 1.8; font-weight: bold; margin-bottom: 10px; }
+        .hamish {
+            font-size: 0.85rem; color: var(--orange); font-weight: bold;
+            background: #fff5e6; padding: 10px; border-radius: 10px;
+            border-right: 5px solid var(--orange); margin-top: 10px;
+        }
+        .footer-card { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .count-badge { background: #f1f5f9; padding: 10px 18px; border-radius: 15px; font-weight: bold; font-size: 1.4rem; color: var(--primary); }
+        .btn-tap {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white; border: none; border-radius: 50%;
+            width: 65px; height: 65px; font-size: 1.6rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .btn-tap.completed { background: var(--success); }
+        .tasbih-card {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white; border-radius: 30px; padding: 30px 15px; margin: 20px 0;
+        }
+        .tasbih-display { font-size: 4rem; font-weight: bold; color: #2ecc71; margin-bottom: 10px; }
+        .tasbih-btn {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: #3498db; color: white; font-size: 1.5rem;
+            border: 6px solid rgba(255,255,255,0.1); cursor: pointer;
+        }
+        .add-section { background: #fff; padding: 20px; border-radius: 20px; border: 2px dashed var(--secondary); margin-top: 20px; }
+        textarea, input { width: 90%; padding: 12px; margin: 10px 0; border-radius: 10px; border: 1px solid #ddd; font-family: inherit; }
+        .btn-add { background: var(--secondary); color: white; border: none; padding: 12px 30px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+    </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <div class="visitor-counter" id="visitor-counter">
-            <i class="fas fa-users"></i> الزيارات: <span id="v-count">...</span>
-            <div class="visitor-stats" id="visitor-stats"></div>
-        </div>
-        <div id="day-date">--</div>
-        <div id="clock">00:00:00</div>
+<div class="header-container">
+    <div class="visitor-counter"><i class="fas fa-users"></i> الزيارات: <span id="v-count">...</span></div>
+    <div id="day-date">--</div>
+    <div id="clock">00:00:00</div>
+</div>
+
+<div class="main-title">أذكار الصباح والمساء</div>
+
+<div id="azkar-list">
     </div>
 
-    <div class="main-title">أذكار الصباح والمساء</div>
+<div class="main-title" style="background: var(--purple);">المسبحة الإلكترونية</div>
+<div class="tasbih-card">
+    <div id="total-tasbih" class="tasbih-display">0</div>
+    <button class="tasbih-btn" onclick="countTasbih()">سبّح</button>
+    <br><br>
+    <button onclick="resetTasbih()" style="color: #ff7979; background: none; border: 1px solid #ff7979; padding: 5px 10px; border-radius: 5px; cursor: pointer;">تصفير المسبحة</button>
+</div>
 
-    <!-- [All your existing azkar cards remain exactly the same] -->
-    <div id="original-azkar">
-        <div class="card" id="c1"><p class="text">﴿اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهما وَهُوَ الْعَلِيُّ الْعَظِيمُ﴾</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n1','c1', this)">👆</button><span class="count-badge" id="n1">1</span></div></div>
-        <div class="card" id="c2"><p class="text">﴿قُلْ هُوَ اللَّهُ أَحَدٌ ﴿١﴾ اللَّهُ الصَّمَدُ ﴿٢﴾ لَمْ يَلِدْ وَلَمْ يُولَدْ ﴿٣﴾ وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ ﴿٤﴾﴾</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n2','c2', this)">👆</button><span class="count-badge" id="n2">3</span></div></div>
-        <div class="card" id="c3"><p class="text">﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ﴿١﴾ مِن شَرِّ مَا خَلَقَ ﴿٢﴾ وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ ﴿٣﴾ وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ ﴿٤﴾ وَمِن شَرِّ حاسِدٍ إِذا حَسَدَ ﴿٥﴾﴾</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n3','c3', this)">👆</button><span class="count-badge" id="n3">3</span></div></div>
-        <div class="card" id="c4"><p class="text">﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿١﴾ مَلِكِ النَّاسِ ﴿٢﴾ إِلَهِ النَّاسِ ﴿٣﴾ مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿٤﴾ الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿٥﴾ مِنَ الْجِنَّةِ وَالنَّاسِ ﴿٦﴾﴾</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n4','c4', this)">👆</button><span class="count-badge" id="n4">3</span></div></div>
-        <div class="card" id="c5"><p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، رَبِّ أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ وَخَيرَ مَا بَعْدَهُ ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا الْيَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أَعُوذُ بِكَ مِنَ الْكَسَلِ وَسُوءِ الْكِبَرِ، رَبِّ أَعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وَعَذَابٍ فِي الْقَبْرِ</p><div class="hamish">وإذا أمسى قال: أمسينا وأمسى الملك لله...</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n5','c5', this)">👆</button><span class="count-badge" id="n5">1</span></div></div>
-        <div class="card" id="c6"><p class="text">اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</p><div class="hamish">وإذا أمسى قال: اللَّهم بك أمسينا، وبك أصبحنا، وبك نحيا، وبك نموت وإليك المصير</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n6','c6', this)">👆</button><span class="count-badge" id="n6">1</span></div></div>
-        <div class="card" id="c7"><p class="text">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أنتَ، خَلقتَني وَأَنَا عَبدُكَ، وَأَنَا عَلَى عَهدِكَ وَوَعدِكَ مَا استَطعتُ، أَعوذُ بِكَ مِن شَرِّ مَا صَنعتُ، أَبوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبوءُ بِذَنبي فَاغفِر لِي فَإِنَّهُ لاَ يَغفِرُ الذُّنوبَ إِلاَّ أَنتَ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n7','c7', this)">👆</button><span class="count-badge" id="n7">1</span></div></div>
-        <div class="card" id="c8"><p class="text">اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ، وَمَلاَئِكَتِكَ، وَجَمِيعَ خَلْقِكَ، أَنَّكَ أَنْتَ اللَّهُ لَا إِلَهَ إِلاَّ أَنْتَ وَحْدَكَ لاَ شَرِيكَ لَكَ، وَأَنَّ مُحَمَّداً عَبْدُكَ وَرسُولُكَ</p><div class="hamish">أربع مرات. وفي المساء: اللَّهم إني أمسيتُ...</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n8','c8', this)">👆</button><span class="count-badge" id="n8">4</span></div></div>
-        <div class="card" id="c9"><p class="text">اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ لاَ شَرِيكَ لَكَ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</p><div class="hamish">وفي المساء: اللَّهم ما أمسى بي...</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n9','c9', this)">👆</button><span class="count-badge" id="n9">1</span></div></div>
-        <div class="card" id="c10"><p class="text">اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لاَ إِلَهَ إِلاَّ أنتَ. اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْكَفْرِ، وَالفَقْرِ، وَأَعُوذُ بِكَ مِنْ عَذَابِ القَبْرِ، لاَ إِلَهَ إِلاَّ أَنْتَ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n10','c10', this)">👆</button><span class="count-badge" id="n10">3</span></div></div>
-        <div class="card" id="c11"><p class="text">حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيهِ تَوَكَّلتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n11','c11', this)">👆</button><span class="count-badge" id="n11">7</span></div></div>
-        <div class="card" id="c12"><p class="text">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ: فِي دِينِي وَدُنْيَايَ وَأَهْلِي، وَمَالِي، اللَّهُمَّ اسْتُرْ عَوْرَاتِي، وَآمِنْ رَوْعَاتِي، اللَّهُمَّ احْفَظْنِي مِنْ بَينِ يَدَيَّ، وَمِنْ خَلْفِي، وَعَنْ يَمِينِي، وَعَنْ شِمَالِي، وَمِنْ فَوْقِي، وَأَعُوذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِي</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n12','c12', this)">👆</button><span class="count-badge" id="n12">1</span></div></div>
-        <div class="card" id="c13"><p class="text">اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ، رَبَّ كُلِّ شَيْءٍ وَمَلِيكَهُ، أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ أَنْتَ، أَعُوذُ بِكَ مِنْ شَرِّ نَفْسِي، وَمِنْ شَرِّ الشَّيْطانِ وَشَرَكِهِ، وَأَنْ أَقْتَرِفَ عَلَى نَفْسِي سُوءاً، أَوْ أَجُرَّهُ إِلَى مُسْلِمٍ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n13','c13', this)">👆</button><span class="count-badge" id="n13">1</span></div></div>
-        <div class="card" id="c14"><p class="text">بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n14','c14', this)">👆</button><span class="count-badge" id="n14">3</span></div></div>
-        <div class="card" id="c15"><p class="text">رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ ﷺ نَبِيّياً</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n15','c15', this)">👆</button><span class="count-badge" id="n15">3</span></div></div>
-        <div class="card" id="c16"><p class="text">يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ وَلاَ تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n16','c16', this)">👆</button><span class="count-badge" id="n16">1</span></div></div>
-        <div class="card" id="c17"><p class="text">أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ: فَتْحَهُ، وَنَصْرَهُ، وَنورَهُ، وَبَرَكَتَهُ، وَهُدَاهُ، وَأَعُوذُ بِكَ مِنْ شَرِّ مَا فِيهِ وَشَرِّ مَا بَعْدَهُ</p><div class="hamish">وفي المساء: أمسينا وأمسى الملك لله رب العالمين...</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n17','c17', this)">👆</button><span class="count-badge" id="n17">1</span></div></div>
-        <div class="card" id="c18"><p class="text">أَصْبَحْنا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ، وَعَلَى دِينِ نَبِيِّنَا مُحَمَّدٍ ﷺ، وَعَلَى مِلَّةِ أَبِينَا إِبْرَاهِيمَ، حَنِيفاً مُسْلِماً وَمَا كَانَ مِنَ الْمُشرِكِينَ</p><div class="hamish">وفي المساء: أمسينا على فطرة الإسلام...</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n18','c18', this)">👆</button><span class="count-badge" id="n18">1</span></div></div>
-        <div class="card" id="c19"><p class="text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n19','c19', this)">👆</button><span class="count-badge" id="n19">100</span></div></div>
-        <div class="card" id="c20"><p class="text">لاَ إِلَهَ إِلاَّ اللَّهُ، وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n20','c20', this)">👆</button><span class="count-badge" id="n20">100</span></div></div>
-        <div class="card" id="c21"><p class="text">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضا نَفْسِهِ، وَزِنَةَ عَرْشِهِ، وَمِدادَ كَلِماتِهِ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n21','c21', this)">👆</button><span class="count-badge" id="n21">3</span></div></div>
-        <div class="card" id="c22"><p class="text">اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n22','c22', this)">👆</button><span class="count-badge" id="n22">1</span></div></div>
-        <div class="card" id="c23"><p class="text">أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n23','c23', this)">👆</button><span class="count-badge" id="n23">100</span></div></div>
-        <div class="card" id="c24"><p class="text">أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ</p><div class="hamish">ثلاث مرات إذا أمسى.</div><div class="footer-card"><button class="btn-tap" onclick="reduce('n24','c24', this)">👆</button><span class="count-badge" id="n24">3</span></div></div>
-        <div class="card" id="c25"><p class="text">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ</p><div class="footer-card"><button class="btn-tap" onclick="reduce('n25','c25', this)">👆</button><span class="count-badge" id="n25">10</span></div></div>
-    </div>
+<div class="main-title" style="background: var(--secondary);">أذكاري الخاصة</div>
+<div id="custom-azkar-list"></div>
+<div class="add-section">
+    <textarea id="custom-text" placeholder="اكتب ذكرك الخاص هنا..." rows="2"></textarea>
+    <input type="number" id="custom-count" placeholder="عدد المرات" value="1">
+    <button class="btn-add" onclick="addCustomZikr()">إضافة الذكر</button>
+</div>
 
-    <div class="main-title" style="background: var(--purple);">المسبحة الإلكترونية</div>
-    <div class="tasbih-card">
-        <div style="font-size: 0.9rem; opacity: 0.8;">إجمالي التسبيح</div>
-        <div class="tasbih-display" id="total-tasbih">0</div>
-        <div style="font-size: 1rem;">دورة (33): <span id="cycle-count">0</span></div>
-        <button class="tasbih-btn" onclick="countTasbih()">سبّح</button>
-        <br>
-        <button onclick="resetTasbih()" style="background:none;border:1px solid #ff7979;color:#ff7979;border-radius:5px;padding:3px 10px;margin-top:10px;cursor:pointer;">تصفير</button>
-    </div>
+<div style="padding: 30px; opacity: 0.6; font-size: 0.8rem;">إشراف ماجد السناني &copy; 2026</div>
 
-    <div class="main-title" style="background: var(--secondary);">أذكاري الخاصة</div>
-    <div id="custom-azkar-list"></div>
-    <div class="add-section">
-        <textarea id="custom-text" placeholder="اكتب ذكرك الخاص هنا..." rows="2"></textarea>
-        <input type="number" id="custom-count" placeholder="عدد المرات" value="1">
-        <button class="btn-add" onclick="addCustomZikr()">إضافة الذكر</button>
-    </div>
+<script>
+    // قائمة الأذكار الكاملة (25 ذكر) مع الهوامش
+    const allAzkar = [
+        { id: 1, text: "آية الكرسي: ﴿اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...﴾", count: 1, hamish: "من قرأها حين يصبح أجير من الجن حتى يمسي." },
+        { id: 2, text: "﴿قُلْ هُوَ اللَّهُ أَحَدٌ...﴾", count: 3, hamish: "تقرأ (3 مرات). تكفيك من كل شيء." },
+        { id: 3, text: "﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ...﴾", count: 3, hamish: "تقرأ (3 مرات). تكفيك من كل شيء." },
+        { id: 4, text: "﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ...﴾", count: 3, hamish: "تقرأ (3 مرات). تكفيك من كل شيء." },
+        { id: 5, text: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ ، وَالْحَمْدُ لِلَّهِ، لاَ إِلَهَ إلاَّ اللَّهُ وَحْدَهُ لاَ شَرِيكَ لَهُ...", count: 1, hamish: "وإذا أمسى قال: أمسينا وأمسى الملك لله." },
+        { id: 6, text: "اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا ، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ", count: 1, hamish: "في المساء: اللَّهم بك أمسينا، وبك أصبحنا..." },
+        { id: 7, text: "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلاَّ أنتَ، خَلقتَني وَأَنَا عَبدُكَ...", count: 1, hamish: "سيد الاستغفار: من قاله موقناً به ومات دخل الجنة." },
+        { id: 8, text: "اللَّهُمَّ إِنِّي أَصْبَحْتُ أُشْهِدُكَ، وَأُشْهِدُ حَمَلَةَ عَرْشِكَ...", count: 4, hamish: "من قالها (4 مرات) أعتقه الله من النار." },
+        { id: 9, text: "اللَّهُمَّ مَا أَصْبَحَ بِي مِنْ نِعْمَةٍ أَوْ بِأَحَدٍ مِنْ خَلْقِكَ فَمِنْكَ وَحْدَكَ...", count: 1, hamish: "من قالها فقد أدى شكر يومه." },
+        { id: 10, text: "اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي...", count: 3, hamish: "كررها 3 مرات." },
+        { id: 11, text: "حَسْبِيَ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ عَلَيهِ تَوَكَّلتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ", count: 7, hamish: "من قالها (7 مرات) كفاه الله ما أهمه." },
+        { id: 12, text: "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالآخِرَةِ...", count: 1, hamish: "سؤال العافية والستر." },
+        { id: 13, text: "اللَّهُمَّ عَالِمَ الغَيْبِ وَالشَّهَادَةِ فَاطِرَ السَّمَاوَاتِ وَالْأَرْضِ...", count: 1, hamish: "للحماية من شر النفس والشيطان." },
+        { id: 14, text: "بِسْمِ اللَّهِ الَّذِي لاَ يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلاَ فِي السّمَاءِ...", count: 3, hamish: "من قالها (3 مرات) لم يضره شيء." },
+        { id: 15, text: "رَضِيتُ بِاللَّهِ رَبَّاً، وَبِالْإِسْلاَمِ دِيناً، وَبِمُحَمَّدٍ ﷺ نَبِيّياً", count: 3, hamish: "كان حقاً على الله أن يرضيه يوم القيامة." },
+        { id: 16, text: "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغيثُ أَصْلِحْ لِي شَأْنِيَ كُلَّهُ...", count: 1, hamish: "دعاء الاستغاثة برحمة الله." },
+        { id: 17, text: "أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ رَبِّ الْعَالَمِينَ، اللَّهُـمَّ إِنِّي أَسْأَلُكَ خَيْرَ مَا فِي هَذَا الْيَوْمِ...", count: 1, hamish: "طلب الفتح والنصر والنور." },
+        { id: 18, text: "أَصْبَحْنا عَلَى فِطْرَةِ الْإِسْلاَمِ، وَعَلَى كَلِمَةِ الْإِخْلاَصِ...", count: 1, hamish: "تجديد العهد على دين الإسلام." },
+        { id: 19, text: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ", count: 100, hamish: "حطت خطاياه وإن كانت مثل زبد البحر." },
+        { id: 20, text: "لاَ إِلَهَ إِلاَّ اللَّهُ، وَحْدَهُ لاَ شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ...", count: 100, hamish: "كانت له عدل عشر رقاب وكُتبت له مئة حسنة." },
+        { id: 21, text: "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ: عَدَدَ خَلْقِهِ، وَرِضا نَفْسِهِ، وَزِنَةَ عَرْشِهِ...", count: 3, hamish: "تعدل ساعات من الذكر." },
+        { id: 22, text: "اللَّهُمَّ إِنِّي أَسْأَلُكَ عِلْماً نَافِعاً، وَرِزْقاً طَيِّباً، وَعَمَلاً مُتَقَبَّلاً", count: 1, hamish: "يقال بعد صلاة الفجر." },
+        { id: 23, text: "أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ", count: 100, hamish: "توبة واستغفار." },
+        { id: 24, text: "أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ", count: 3, hamish: "تقال 3 مرات في المساء." },
+        { id: 25, text: "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبَيِّنَا مُحَمَّدٍ", count: 10, hamish: "من صلى عليّ حين يصبح وحين يمسي أدركته شفاعتي." }
+    ];
 
-    <div style="padding: 40px 0; color: #94a3b8; font-size: 0.75rem;">إشراف ماجد السناني &copy; 2025</div>
+    // تشغيل الساعة والتاريخ
+    function updateClock() {
+        const now = new Date();
+        const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+        document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        const hijri = now.toLocaleDateString('ar-SA-u-ca-islamic-uma', options);
+        document.getElementById('day-date').innerText = days[now.getDay()] + " | " + hijri;
+    }
+    setInterval(updateClock, 1000); updateClock();
 
-    <script>
-        // Update clock function
-        function updateClock() {
-            const now = new Date();
-            const days = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
-            document.getElementById('clock').innerText = now.toLocaleTimeString('ar-SA');
-            document.getElementById('day-date').innerText = days[now.getDay()] + " - " + now.toLocaleDateString('ar-EG', { day:'numeric', month:'long', year:'numeric' });
+    // عداد الزيارات
+    let v = localStorage.getItem('v_count') || 0; v++; localStorage.setItem('v_count', v);
+    document.getElementById('v-count').innerText = v;
+
+    // عرض الأذكار
+    function renderAzkar() {
+        const container = document.getElementById('azkar-list');
+        container.innerHTML = allAzkar.map(zikr => `
+            <div class="card" id="card-${zikr.id}">
+                <p class="text">${zikr.text}</p>
+                ${zikr.hamish ? `<div class="hamish">${zikr.hamish}</div>` : ''}
+                <div class="footer-card">
+                    <button class="btn-tap" onclick="countDown(${zikr.id}, ${zikr.count}, this)">👆</button>
+                    <span class="count-badge" id="n-${zikr.id}">${zikr.count}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function countDown(id, initial, btn) {
+        let el = document.getElementById(`n-${id}`);
+        let current = parseInt(el.innerText);
+        if (current > 0) {
+            current--; el.innerText = current;
+            if (navigator.vibrate) navigator.vibrate(40);
         }
-        setInterval(updateClock, 1000); 
-        updateClock();
-
-        // GLOBAL VISITOR COUNTER USING FREE API
-        async function updateGlobalVisitorCounter() {
-            const vSpan = document.getElementById('v-count');
-            const counterElement = document.getElementById('visitor-counter');
-            const statsElement = document.getElementById('visitor-stats');
-            
-            // Show loading state
-            counterElement.classList.add('loading');
-            vSpan.innerText = "...";
-            
-            try {
-                // OPTION 1: Using a reliable free counter API
-                // This API will count ALL visitors across all devices
-                
-                // Create a unique namespace for your site
-                const siteName = "majid_senani_azkar_app";
-                
-                // Try multiple free APIs for reliability
-                const apis = [
-                    // CountAPI (very reliable, free, no signup needed)
-                    `https://api.countapi.xyz/hit/${siteName}/visits`,
-                    
-                    // CounterAPI (alternative)
-                    `https://api.counterapi.dev/v1/${siteName}/increment`,
-                    
-                    // Simple JSON-based counter (fallback)
-                    `https://count.visit-counter.workers.dev/count?name=${siteName}`
-                ];
-                
-                let count = 0;
-                let apiUsed = "";
-                
-                // Try each API until one works
-                for (let apiUrl of apis) {
-                    try {
-                        const response = await fetch(apiUrl, { 
-                            method: 'GET',
-                            mode: 'cors',
-                            cache: 'no-cache'
-                        });
-                        
-                        if (response.ok) {
-                            const data = await response.json();
-                            
-                            // Different APIs return different response formats
-                            if (data.value !== undefined) {
-                                count = data.value;
-                            } else if (data.count !== undefined) {
-                                count = data.count;
-                            } else if (data.views !== undefined) {
-                                count = data.views;
-                            } else if (typeof data === 'number') {
-                                count = data;
-                            }
-                            
-                            apiUsed = new URL(apiUrl).hostname;
-                            break; // Stop trying APIs if one works
-                        }
-                    } catch (e) {
-                        console.log(`API ${apiUrl} failed, trying next...`);
-                        continue;
-                    }
-                }
-                
-                // If all APIs fail, try localStorage as last resort (will be per-user)
-                if (count === 0) {
-                    let localCount = localStorage.getItem('local_visitor_count') || 0;
-                    localCount = parseInt(localCount) + 1;
-                    localStorage.setItem('local_visitor_count', localCount);
-                    count = localCount;
-                    apiUsed = "localStorage (per user only)";
-                }
-                
-                // Update display
-                vSpan.innerText = count.toLocaleString('ar-EG');
-                
-                // Add animation
-                counterElement.classList.remove('loading');
-                counterElement.classList.add('counter-animation');
-                setTimeout(() => {
-                    counterElement.classList.remove('counter-animation');
-                }, 1000);
-                
-                // Show stats
-                statsElement.innerHTML = `<i class="fas fa-sync-alt"></i> تم التحديث: ${new Date().toLocaleTimeString('ar-EG', {hour: '2-digit', minute:'2-digit'})}`;
-                
-                // Log for debugging
-                console.log(`Global visitor count: ${count} (via ${apiUsed})`);
-                
-            } catch (error) {
-                console.error("Error updating visitor counter:", error);
-                
-                // Fallback to localStorage
-                let localCount = localStorage.getItem('local_visitor_count') || 0;
-                localCount = parseInt(localCount) + 1;
-                localStorage.setItem('local_visitor_count', localCount);
-                
-                vSpan.innerText = localCount.toLocaleString('ar-EG');
-                counterElement.classList.remove('loading');
-                counterElement.classList.add('error');
-                statsElement.innerHTML = '<i class="fas fa-exclamation-triangle"></i> وضع عدم الاتصال';
-                
-                console.log(`Using local fallback count: ${localCount}`);
-            }
+        if (current === 0) {
+            document.getElementById(`card-${id}`).classList.add('done');
+            btn.innerHTML = "✅"; btn.disabled = true; el.innerText = "✓";
         }
-        
-        // Call the global counter function
-        updateGlobalVisitorCounter();
+    }
 
-        // Existing functions remain the same
-        function reduce(id, cardId, btn) {
-            let el = document.getElementById(id);
-            let val = parseInt(el.innerText);
-            if (val > 0) { val--; el.innerText = val; if (navigator.vibrate) navigator.vibrate(40); }
-            if (val === 0) { 
-                document.getElementById(cardId).classList.add('done');
-                btn.innerHTML = "✅"; btn.classList.add('completed'); btn.disabled = true; el.innerText = "✓";
-            }
-        }
+    // المسبحة
+    let t = parseInt(localStorage.getItem('t_total')) || 0;
+    document.getElementById('total-tasbih').innerText = t;
+    function countTasbih() {
+        t++; document.getElementById('total-tasbih').innerText = t;
+        localStorage.setItem('t_total', t);
+        if (navigator.vibrate) navigator.vibrate(40);
+    }
+    function resetTasbih() { if(confirm("تصفير؟")) { t=0; localStorage.setItem('t_total', 0); document.getElementById('total-tasbih').innerText = 0; } }
 
-        let totalT = parseInt(localStorage.getItem('t_total')) || 0;
-        document.getElementById('total-tasbih').innerText = totalT;
-        document.getElementById('cycle-count').innerText = totalT % 33;
+    // الأذكار الخاصة
+    let myAzkar = JSON.parse(localStorage.getItem('my_azkar')) || [];
+    function renderCustom() {
+        document.getElementById('custom-azkar-list').innerHTML = myAzkar.map((z, i) => `
+            <div class="card" id="cust-card-${i}">
+                <p class="text">${z.text}</p>
+                <div class="footer-card">
+                    <button class="btn-tap" onclick="countDownCustom(${i}, this)">👆</button>
+                    <span class="count-badge" id="cn-${i}">${z.count}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    function addCustomZikr() {
+        const text = document.getElementById('custom-text').value;
+        const count = document.getElementById('custom-count').value;
+        if(text) { myAzkar.push({text, count}); localStorage.setItem('my_azkar', JSON.stringify(myAzkar)); renderCustom(); document.getElementById('custom-text').value=''; }
+    }
+    function countDownCustom(i, btn) {
+        let el = document.getElementById(`cn-${i}`);
+        let c = parseInt(el.innerText);
+        if(c > 0) { c--; el.innerText = c; if(navigator.vibrate) navigator.vibrate(40); }
+        if(c === 0) { document.getElementById(`cust-card-${i}`).classList.add('done'); btn.innerHTML="✅"; btn.disabled=true; el.innerText="✓"; }
+    }
 
-        function countTasbih() {
-            totalT++;
-            document.getElementById('total-tasbih').innerText = totalT;
-            document.getElementById('cycle-count').innerText = totalT % 33;
-            localStorage.setItem('t_total', totalT);
-            if (navigator.vibrate) navigator.vibrate(totalT % 33 === 0 ? [100, 50, 100] : 40);
-        }
-
-        function resetTasbih() { if(confirm("تصفير المسبحة؟")) { totalT = 0; localStorage.setItem('t_total', 0); location.reload(); } }
-
-        let myAzkar = JSON.parse(localStorage.getItem('majid_azkar_v2')) || [];
-        function saveAndRender() { localStorage.setItem('majid_azkar_v2', JSON.stringify(myAzkar)); renderCustom(); }
-        function addCustomZikr() {
-            const txt = document.getElementById('custom-text').value;
-            const cnt =
+    renderAzkar(); renderCustom();
+</script>
+</body>
+</html>
